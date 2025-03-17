@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body>
+    <h1>Eclipseed</h1><button onclick="solicitar()">Solicite um orçamento</button>
+    <br><br>
+    <b>QUEM SOMOS?</b>
+    <br><br>
+    EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  <br>
+    EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  <br>
+    EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  EXPLICAÇÃO SOBRE EMPRESA!  <br>
+    <h2><b>A quantidade de luz ideal para o seu plantio!</b></h2>
+    <img src="https://cdn.awsli.com.br/300x300/468/468162/produto/19414320323d30eb14.jpg" alt="">
+    <h3>Solicite um orçamento gratuito</h3>
+    <br>
+    <input type="text" id="input_nome" placeholder="Nome">
+    <input type="text" id="input_email" placeholder="E-mail">
+    <input type="text" id="input_telefone" placeholder="Telefone">
+    <br>
+    <input type="text" id="input_cnpj" placeholder="CNPJ">
+    <input type="text" id="input_hectares" placeholder="Hectares">
+    <input type="text" id="input_faturamento" placeholder="Faturamento">
+    <button onclick="solicitar()">Solicite um orçamento</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var sensores = 100;
+    function solicitar() {
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var telefone = input_email.value;
+        var cnpj = input_cnpj.value;
+        var hectares = Number(input_hectares.value);
+        var faturamento = Number(input_faturamento.value);
+        var qtdSensores = hectares / 10 // POR HECTARE SERÃO 10 SENSORES
+        var custo = sensores * qtdSensores;
+        var lucro = faturamento + (faturamento * 0.10);
+
+        div_mensagem.innerHTML = `Nome: ${nome}    E-mail: ${email}    Telefone: ${telefone}<br>
+        CNPJ: ${cnpj}    Hectares: ${hectares}    Faturamento Total: ${faturamento}<br>
+        Seria necessário instalar ${qtdSensores} de nossos sensores na sua plantação, isso geraria um lucro adicional de aproximadamente: <b style='color: green'>R$ ${lucro}</b>,
+        e gastaria no total R$ ${custo} com nossos sensores. <b><u>Tem interesse? Contate-nos através do nosso e-mail!</u></b>`
+    }
+</script>
