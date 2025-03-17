@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - Eclipseed</title>
+</head>
+<body>
+    <h1>Qual é o tamanho do seu plantio?</h1><br>
+    <input type="number" id="input_hectare" placeholder="hectare(ha)"><br><br>
+
+<button onclick="calcular()">Calcular lucro potencial</button>
+
+<div id="div_mensagem"></div>
+</body>
+</html> 
+<script>
+function calcular() {
+var hectare = Number(input_hectare.value);
+ var lucro = hectare * 58 * 5.998;
+var perda = lucro * 0.20;
+
+
+div_mensagem.innerHTML = `O seu lucro é em média R$${lucro} por hectare.<br>
+        Desse R$${lucro} que você ganha.<br> 
+        Você perde aproximadamente R$${perda} por safra, e R$${perda * 0.13} são apenas por mal monitoramento de iluminação.`;
+}
+</script>
+
+<!-- Bibliografia do valor do hectare
+Agroadvance. Agroadvance, 27 jun. 2024. Disponível em: <https://agroadvance.com.br/?utm_source=www.google.com/&utm_medium=organic&utm_campaign=direct&utm_content=blog-custo-de-producao-de-soja-por-hectare-em-2024&utm_term=>. Acesso em: 11 mar. 2025
+ -->
