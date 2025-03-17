@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="style_index.css">
+</head>
+<body>
+    
+    <div class="center">
+    <div class="header">
+    <div  id="div_conteudo">
+    <h3>Este simulador ajudará a sua empresa a analisar o prejuízo causado pela falta de iluminação, e quanto isso afeta o seu plantio</h3>
+    <hr>
+
+
+    <p>Digite quantos hectares de soja há em sua plantação:</p>
+    <input type="text" style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;" id="input_tamanho"><br><br>
+
+    <p>Digite o lucro médio por hectar de soja: </p>
+    <input type="text" style="width: 100%; padding: 12px 20px; margin: 8px 0; box-sizing: border-box;" id="input_lucro"><br><br>
+
+    <button onclick="calcular_prejuizo()">Próximo</button>
+    </div>
+
+
+
+
+    
+    
+
+    </div>
+</body>
+</html>
+
+    
+<script>
+
+    function calcular_prejuizo(){
+        var tamanho = Number(input_tamanho.value)
+        var lucro = Number(input_lucro.value)
+        var lucroTotal = tamanho*lucro
+        var prejuizo = (lucroTotal * 0.2)
+        var prejuizoLuz = (prejuizo * 0.03)
+
+        div_conteudo.innerHTML = `
+        Em condições normais, é comum ter prejuizo de até 20% por conta de fatores diversos. Porém, a desatenção com a luz
+        representa 3% da perda de grãos de soja. <br>
+        Seu lucro é de R$${lucroTotal}, com prejuizo médio de R$${prejuizo}, sendo R$${prejuizoLuz} por falta de monitoramento de luz.<br>
+
+        <a href="index.html"><button>Voltar</button></a>
+        `
+    }
+</script>
