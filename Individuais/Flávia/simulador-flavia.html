@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - Eclipseed</title>
+</head>
+<body>
+    <center>
+    <h1><i><font style="color: green;">Bem vindo ao Simulador Financeiro da Eclipseed</font></i></h1>
+    <div>
+            <p>A equipe da Eclipseed desenvolveu este simulador para demonstrar em dados monetários<br>
+            o funcionamento do nosso produto, o sensor de Luminosidade para Monitoramento</p><br>
+            <label for="">Digite a quantidade de hectares possuida: </label>
+            <input type="number" placeholder="Mínimo 1 hectare!" id="input_hectare"><br><br>
+            <button onclick="analisar()"><font style="color: green;">Analisar Dados</font></button><br><br>
+    </div>
+    <div id="div_mensagem"></div>
+    </center>
+</body>
+</html>
+<script>
+    function analisar(){
+        
+        var hectare = Number(input_hectare.value)
+        var sacas = Number(input_hectare.value * 75)
+        var valorSaca = Number(sacas * 135 )
+        var perdaTotal = Number(valorSaca*0.2)
+        var perdaLuz = Number(perdaTotal * 0.13)
+
+        div_mensagem.innerHTML = `O valor médio de uma saca de soja em 1 hectare gira em torno de R$135,00, em 1 hectare pode-se obter em média 75 sacas, então em ${hectare} hectare(s) haverão em média ${sacas} sacas que 
+        somariam um valor de <b><font style="color: green;">R$${valorSaca.toFixed(2)}</font></b>.<br><br>
+        Dentro deste valor, em média 20% é perdido, ou seja, <b><font style="color: green;">R$${perdaTotal.toFixed(2)}</font></b> do valor total é perdido.<br><br>
+        Aproximadamente 13% deste valor é perdido apenas pelo uso inadequado da luminosidade, o que somaria <b><font style="color: green;">R$${perdaLuz.toFixed(2)}</font></b>.`
+    }
+</script>
