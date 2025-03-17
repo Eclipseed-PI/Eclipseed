@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eclipseed - Simulador Financeiro</title>
+</head>
+<body>
+    <h1><font style="color: rgb(53, 134, 53);">Eclipseed - Simulador Financeiro</font></h1>
+    <div>
+            <p>Simulador Financeiro, você está perdendo e não sabe!<br>
+            Com o nosso produto, você descobre o quanto você perde por uso inadequado de luz em seu território. Desta forma
+            ajudamos a simular o quanto você perde e como você pode evitar isso conosco!</p><br>
+
+            Qual a quantidade de Hectares?
+            <input type="number" id="input_hectares"><br><br>
+
+            <button onclick="simular()">Simular</font></button><br><br>
+    </div>
+            <div id="div_mensagem"></div> 
+</body>
+</html>
+<script>
+    function simular() {
+        
+        var hectares = Number(input_hectares.value);
+        
+       
+        var sacas = hectares * 50;
+        var vlrSaca = sacas * 120.50;
+        
+        var perda = vlrSaca * 0.15;
+        var luz = perda * 0.3;
+
+        div_mensagem.innerHTML = `
+        Cada saca tem um valor estimado em ${hectares} hectares -> (R$120,50),
+        em ${hectares} hectares dessa forma, em média ${sacas} sacas = R$${vlrSaca}.
+        15% R$${perda} do valor total é perdido.<br> Em média perdemos 3% desse valor com o uso inadequado da luminosidade, onde resultaria em R$${luz} de prejuízo.`;
+    }
+</script>
