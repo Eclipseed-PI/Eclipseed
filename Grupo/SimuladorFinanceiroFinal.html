@@ -58,8 +58,8 @@
 <body>
     <div class="header">
     <h1>Eclipseed</h1>
-    <br><br>
     </div>
+
     Informe quantos hectares de plantio:
     <input type="text" id="input_hectares">
     <br>
@@ -84,23 +84,36 @@
         var hectares = Number(input_hectares.value);
         var faturamento = Number(input_faturamento.value);
         var gasto = Number(input_gasto.value);
-        var qtd = 8;
+        var qtd = 8*hectares;
         var instalação = sensor * qtd;
         var lucro_inicial = faturamento - gasto;
-        var lucro_final = lucro_inicial + (faturamento * 0.03);
-        var perdaTotal = (faturamento * 0.15);
-        var perdaLuminosidade = perdaTotal * 0.3;
+        var lucro_final = lucro_inicial + (faturamento * 0.3) ;
+        var perdaTotal = (faturamento * 0.20);
+        var perdaLuminosidade = perdaTotal * 0.13;
+        
 
         if (lucro_inicial < 0){
          div_mensagem.innerHTML = "Cálculo inválido, o faturamento não pode ser menor que o gasto para calcular o lucro."
         } else {
-        div_mensagem.innerHTML = `A fazenda da empresa conta com ${hectares} hectares, um valor bruto faturado de <b style='color: green'>R$ ${faturamento},00</b> e <b style='color: red'>R$ ${gasto},00</b> de gasto para replantio. 
-        <br><br>Em média, <b style='color: red'>15%</b> do faturamento total da soja é perdido, e dentro dessa perda, <b style='color: red'>3%</b> é por causa da má iluminação, que no caso da sua empresa seriam os seguintes valores: 
+        div_mensagem.innerHTML = `Seu plantio conta com <b style='color: black'> ${hectares} hectares </b>, um valor bruto faturado de <b style='color: black'>R$ ${faturamento},00</b> e <b style='color: black'>R$ ${gasto},00</b> de gasto para replantio. 
+        <br><br>
+        
+        Atualmente a média de perdas em grandes safras tem sido de <b style='color: purple'>20%</b> por hectar </b> , isto seria <b style='color:red'>R$${perdaTotal},00</b> nesse cenário de 
+        produção. Dentre essa porcentagem, cerca de <b style='color: purple'>13%</b> é por conta da falta ou excesso de iluminação recebida pela planta, ou seja, em
+        <b style='color: black'> ${hectares} Hectares </b>, o produtor perde <b style='color:red'>R$${perdaLuminosidade},00 </b> por conta da falta de controle no monitoramento de luminosidade.   
+
+           
         <br><br>Produção sem perdas = <b style='color: red'>${faturamento},00 </b> ;<br>
-        Produção com perdas de <b>15%</b> =<b style='color: red'> ${perdaTotal},00</b> ;<br>
-        Dentre esses <b style='color: red'>15%</b>, <b style='color: red'>3%</b> é por mal monitoramento de luz do plantio, equivalente a <b style='color: red'>R$ ${perdaLuminosidade},00.</b>
-        <br><br>Se a empresa desejar instalar ${qtd} sensores, sendo o valor do sensor <b style='color: blue'>R$ ${sensor},00</b>, o valor gasto com a instalação será de <b style='color: red'>R$ ${instalação},00</b> por hectare, totalizando <b style='color: red'>R$ ${instalação * hectares},00</b>.
-        <br><br>O lucro atual é de <b style='color: green'>${lucro_inicial},00</b>, mas com a utilização dos sensores na quantidade adequada (8 sensores por hectar) se tornaria aproximadamente <b style='color: green'> ${lucro_final},00</b>, recuperando cerca de <b style='color: red'>3%</b> do prejuízo por hectar. <br> <br>`
-        }
+        Valor da perdas de <b>20%</b> =<b style='color: red'> ${perdaTotal},00</b> ;<br>
+        <b style='color: purple'>13%</b> de <b style='color: purple'>20%</b>,é equivalente a <b style='color: red'>R$ ${perdaLuminosidade},00.</b>
+        
+    
+        <br><br>O lucro atual é de <b style='color: green'>R$ ${lucro_inicial},00 </b>, 
+        mas com a utilização dos sensores na quantidade adequada, se tornaria aproximadamente 
+        <b style='color: green'>R$ ${lucro_final},00</b>, considerando o investimento nos sensores. <br><br><br> <br><br>
+
+        `
+        
+    }
     }
 </script>
