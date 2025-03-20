@@ -115,19 +115,19 @@ CREATE TABLE historicoPlantio(
 	intensidadeLuz DECIMAL NOT NULL,                         
 	statusLuz VARCHAR(50) NOT NULL,  
 		CONSTRAINT chkStatusLuz CHECK (statusLuz IN ('Iluminação Adequada', 'Iluminação Excessiva', 'Iluminação Insuficiente')), 
-	horarioAtt DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL
+	horarioAtt DATETIME
 );
 
 INSERT INTO historicoPlantio (
-    intensidadeLuz, statusLuz
+    intensidadeLuz, statusLuz, horarioAtt
 ) VALUES 
-    (120.0, 'Iluminação Adequada'), 
-    (180.0, 'Iluminação Excessiva'), 
-    (40.0, 'Iluminação Insuficiente'),
-	(130.0, 'Iluminação Adequada'), 
-    (200.0, 'Iluminação Excessiva'), 
-    (45.0, 'Iluminação Insuficiente'),  
-    (110.0, 'Iluminação Adequada');  
+    (120.0, 'Iluminação Adequada', '2025-03-19 10:00:00'), 
+    (180.0, 'Iluminação Excessiva', '2025-03-19 10:15:00'), 
+    (40.0, 'Iluminação Insuficiente', '2025-03-19 10:30:00'),
+    (130.0, 'Iluminação Adequada', '2025-03-19 10:45:00'), 
+    (200.0, 'Iluminação Excessiva', '2025-03-19 11:00:00'), 
+    (45.0, 'Iluminação Insuficiente', '2025-03-19 11:15:00'),  
+    (110.0, 'Iluminação Adequada', '2025-03-19 11:30:00');
     
     SELECT 
     idHistoricoPlantio AS "ID do Histórico",
@@ -151,7 +151,7 @@ WHERE
 INSERT INTO Instalacao (
     nomeEmpresa, dtInstalacao, valorInstalacao, validadeProduto, qtdProdutoInstalado) 
     VALUES 
-    ('Emanuel Fazendas', '2025-03-12', 180, '2026-09-12', 10);
+    ('Emanuel Fazendas', '2025-03-12', 130, '2026-09-12', 10);
     
    SELECT 
     idInstalacao AS "ID",

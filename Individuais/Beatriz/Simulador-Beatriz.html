@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+    background-color: rgb(64, 155, 137);
+}
+
+
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+<center>
+  
+        <b style="color:rgb(255, 255, 255)"><i><a><h1>  Simulador Financeiro- Eclipseed </h1></a></i></b>
+        Informe Tamanho do Terreno em Hectar <input id="input_terreno" type="Number" placeholder="Hectares"><br><br>
+
+        Informe lucro da produção <input id="input_produção" type="Number" placeholder=" R$ "><br><br>
+
+        Informe quantas sacas você ganha em média por hectar <input id="input_valorsacas" type="Number" placeholder=" R$ "><br><br>
+
+        Informe quanto você ganha por saca <input id="input_ganhoporsacas" type="Number" placeholder=""><br><br>
+
+        informe quantas sacas em média você perde <input id="input_perdadesacas" type="Number" placeholder=""><br><br>
+
+    <button onclick="verificar()" style="background-color:rgb(214, 172, 66) "> Verificar </button>
+    
+
+    
+</center>
+
+
+    <br><div id="mensagem"></div>
+<br><br><br>
+
+
+<div id="mensagemprodutor"></div>
+
+
+
+</body>
+</html>
+
+
+ <!-- 
+  quantidade de sacas por hectar= 48
+  cada saca= R$150
+  lucro de um hectar
+  perda com 25%
+  dentro dos 25% -> 3% da iluminação  
+  adicionar mais 2 inputs perguntando sobre esses valores na produção dele, para fazer um comparativo do produtor com o mercado 
+  
+  -->
+
+ <script>
+    function verificar(){
+
+     //média geral
+
+        var tamanho= Number(input_terreno.value)
+        var tamanho_convertido= tamanho*1000.00
+        var produçãosemperdas = tamanho_convertido*48
+        var produçãocom25deperda = produçãosemperdas * 0.25
+        var perdafinaceira = produçãocom25deperda * 150
+        var daperdade25_iluminosdade = perdafinaceira * 0.3
+
+
+    //média produtor
+
+        var lucro= input_produção.value 
+        var Custo_sacas= input_valorsacas.value
+        var valor_saca= input_ganhoporsacas.value
+        var perda_saca= input_perdadesacas.value
+
+       var lucrodesacas= (tamanho*1000) * valor_saca
+        var valordasperdas= (tamanho * perda_saca) *0.1
+
+        
+    mensagem.innerHTML=`
+    
+ Em uma produção de <b>${tamanho} hec </b> sendo <b>48 sacas por hectar</b>, o produtor recebe em média cerca de R$ <b>${produçãosemperdas},00 </b>.
+ <br>
+ Atualmente a média de perdas em grandes safras tem sido de <b>25% por hec </b> , isto seria <b>R$${produçãocom25deperda},00</b> no cenário de 
+<b> ${tamanho} Hec </b> de produção.<br> Dentre esse valor, cerca de <b>3%</b> é por conta da falta ou excesso de iluminação recebida pela planta, ou seja, em
+ <b>${tamanho} Hec </b>, o produtor perde <b>R$${daperdade25_iluminosdade},00 </b> por conta da falta de controle no monitoramento de luminosidade.   
+
+ <p>
+ tamanho da safra = <b>${tamanho} hec.</b> ;<br>
+ Produção sem perdas = <b> ${produçãosemperdas},00 </b> ;<br>
+Produção com perdas de <b>25%</b> = <b>${produçãocom25deperda},00</b> ;<br>
+Dentre esses <b>25%</b>, <b>${daperdade25_iluminosdade},00</b>  é por mal monitoramento luminário do plantio. <br>
+`
+
+
+}
+
+
+
+
+ </script>
