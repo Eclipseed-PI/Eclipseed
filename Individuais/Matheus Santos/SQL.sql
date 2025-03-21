@@ -20,6 +20,15 @@ dtProdução DATE,
 dtVenda DATE
 );
 
+CREATE TABLE Plantio (
+idPlantio INT PRIMARY KEY AUTO_INCREMENT,   
+tamanho DECIMAL,            
+tipoSolo VARCHAR(100),     
+tipoSoja VARCHAR(100),     
+localizacao VARCHAR(255), 
+qtdSensores INT             
+);
+
 
 
 
